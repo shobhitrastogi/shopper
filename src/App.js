@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProductList from './pages/ProductList';
+import Cart from './pages/Cart';
+import ProductDetail from './pages/ProductDetail';
+import Navbar from './components/Navbar';
+import Contact from './components/Contact';
+import Blog from './pages/Blog';
 
-function App() {
+
+const App = () => {
+  // Initialize the cart items as an empty array in the App component's state
+  const [cartItems, setCartItems] = useState([]);
+  
+  // Function to add an item to the cart
+  const addItemToCart = (product) => {
+    setCartItems([...cartItems, product]);
+  };
+
+  // Function to remove an item from the cart
+  const removeItemFromCart = (index) => {
+    const updatedCart = [...cartItems];
+    updatedCart.splice(index, 1);
+    setCartItems(updatedCart);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+       <Navbar/>
+      <Routes>
+        <Route
+          path="/"
+          element={<ProductList addItemToCart={addItemToCart} />}
+        />
+        <Route
+          path="/cart"
+          element={<Cart cartItems={cartItems} removeItemFromCart={removeItemFromCart} />}
+        />
+        <Route
+          path="/product/:id"
+          element={<ProductDetail addItemToCart={addItemToCart} />}
+        />
+        <Route
+          path="/about"
+          element={<Blog />}
+        />
+        
+      </Routes>
+      <Contact />
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
