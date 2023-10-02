@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {Link,  useNavigate } from 'react-router-dom';
 
 const ProductList = ({ addItemToCart }) => {
   const [data, setData] = useState([]);
@@ -33,6 +33,9 @@ const ProductList = ({ addItemToCart }) => {
   };
 
   return (
+  
+   
+
     <section className="text-gray-600 body-font">
       <div className="container px-3 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
@@ -50,10 +53,10 @@ const ProductList = ({ addItemToCart }) => {
                 <h2 className="text-gray-900 title-font text-lg font-medium">{product.title}</h2>
                 <p className="mt-1">${product.price.toFixed(2)}</p>
                 <div className="flex items-center flex-wrap">
-                  <a
+                  <button
                     className="text-dark-500 inline-flex items-center md:mb-2 lg:mb-0"
                     onClick={() => addItemToCartAndNavigate(product)} // Add to cart and navigate
-                  >
+                    >
                     Buy Now
                     <svg
                       className="w-4 h-4 ml-2"
@@ -63,29 +66,26 @@ const ProductList = ({ addItemToCart }) => {
                       fill="none"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                    >
+                      >
                       <path d="M5 12h14"></path>
                       <path d="M12 5l7 7-7 7"></path>
                     </svg>
-                  </a>
-                   <a href={`/product/${product.id}`}
-                    className="text-dark-500 inline-flex items-center md:mb-2 lg:mb-0"
-                     // Add to cart and navigate
-                  >
-                    view detail 
-                    <svg
-                      className="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
+                  </button>
+                  <Link to={`/product/${product.id}`} className="text-dark-500 inline-flex items-center md:mb-2 lg:mb-0">
+  View Detail 
+  <svg
+    className="w-4 h-4 ml-2"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth="2"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M5 12h14"></path>
+    <path d="M12 5l7 7-7 7"></path>
+  </svg>
+</Link>
                 </div>
               </div>
             </div>
@@ -93,6 +93,7 @@ const ProductList = ({ addItemToCart }) => {
         </div>
       </div>
     </section>
+          
   );
 };
 
