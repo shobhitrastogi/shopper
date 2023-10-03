@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
-<<<<<<< HEAD
-import {Link,  useNavigate } from 'react-router-dom';
-=======
 import { Link, useNavigate } from 'react-router-dom';
->>>>>>> 82d9aa069864a8024a2dd821586319ace964e4e0
 
 const ProductList = ({ addItemToCart }) => {
   const [data, setData] = useState([]);
@@ -37,12 +33,6 @@ const ProductList = ({ addItemToCart }) => {
   };
 
   return (
-<<<<<<< HEAD
-  
-   
-
-=======
->>>>>>> 82d9aa069864a8024a2dd821586319ace964e4e0
     <section className="text-gray-600 body-font">
       <div className="container px-3 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
@@ -60,17 +50,10 @@ const ProductList = ({ addItemToCart }) => {
                 <h2 className="text-gray-900 title-font text-lg font-medium">{product.title}</h2>
                 <p className="mt-1">${product.price.toFixed(2)}</p>
                 <div className="flex items-center flex-wrap">
-<<<<<<< HEAD
-                  <button
-                    className="text-dark-500 inline-flex items-center md:mb-2 lg:mb-0"
-                    onClick={() => addItemToCartAndNavigate(product)} // Add to cart and navigate
-                    >
-=======
                   <a
                     className="text-dark-500 inline-flex items-center md:mb-2 lg:mb-0"
                     onClick={() => addItemToCartAndNavigate(product)} // Add to cart and navigate
                   >
->>>>>>> 82d9aa069864a8024a2dd821586319ace964e4e0
                     Buy Now
                     <svg
                       className="w-4 h-4 ml-2"
@@ -80,28 +63,6 @@ const ProductList = ({ addItemToCart }) => {
                       fill="none"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-<<<<<<< HEAD
-                      >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </button>
-                  <Link to={`/product/${product.id}`} className="text-dark-500 inline-flex items-center md:mb-2 lg:mb-0">
-  View Detail 
-  <svg
-    className="w-4 h-4 ml-2"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth="2"
-    fill="none"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M5 12h14"></path>
-    <path d="M12 5l7 7-7 7"></path>
-  </svg>
-</Link>
-=======
                     >
                       <path d="M5 12h14"></path>
                       <path d="M12 5l7 7-7 7"></path>
@@ -125,7 +86,6 @@ const ProductList = ({ addItemToCart }) => {
                       <path d="M12 5l7 7-7 7"></path>
                     </svg>
                   </a>
->>>>>>> 82d9aa069864a8024a2dd821586319ace964e4e0
                 </div>
               </div>
             </div>
@@ -133,10 +93,6 @@ const ProductList = ({ addItemToCart }) => {
         </div>
       </div>
     </section>
-<<<<<<< HEAD
-          
-=======
->>>>>>> 82d9aa069864a8024a2dd821586319ace964e4e0
   );
 };
 
