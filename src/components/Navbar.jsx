@@ -1,8 +1,10 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import { useNavigate,Link } from 'react-router-dom'
 
 const Navbar = () => {
     const navigate= useNavigate()
+    
+  const [loggedin, setLoggedin] = useState(false);
   return (
   <>
   <header className="text-dark-600 body-font">
@@ -12,10 +14,18 @@ const Navbar = () => {
       <span className="ml-3 text-xl">shobhit-shopper</span>
     
     <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+      { !loggedin ? 
+      <>
       <Link to={'/'} className="mr-5 hover:text-gray-900">Home page</Link>
       <Link to={'/about'} className="mr-5 hover:text-gray-900">About Page</Link>
       <Link to={'/login'} className="mr-5 hover:text-gray-900">Login Page</Link>
+      </> :
+      <>
       <Link to={'/signup'} className="mr-5 hover:text-gray-900">Signup Page</Link>
+      </>
+    }
+      
+      
 </nav>
     <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
       {/* <svg xmlns="https://the-bluecompany.org/admin/uploads/image/partner_shopit_logo.jpg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
