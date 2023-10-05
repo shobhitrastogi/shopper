@@ -12,7 +12,7 @@ import Signup from './components/Signup';
 const Home = () => {
   // Initialize the cart items as an empty array in the App component's state
   const [cartItems, setCartItems] = useState([]);
-  const [loggedin, setLoggedin] = useState(true);
+  const [loggedin, setLoggedin] = useState(false);
   const navigate = useNavigate();
 
   // Function to add an item to the cart
@@ -25,8 +25,10 @@ const Home = () => {
     const updatedCart = [...cartItems];
     updatedCart.splice(index, 1);
     setCartItems(updatedCart);
+    navigate('/')
+  
   };
-  if(!loggedin){
+  if(loggedin){
   navigate('/signup')
   }
   // Conditional route rendering based on the "loggedin" state
@@ -63,6 +65,8 @@ const Home = () => {
           element={<ProductDetail addItemToCart={addItemToCart} />}
         />
         <Route path="/about" element={<Blog />} />
+        
+        <Route path="/*" element={<Signup />} />
         </Routes>
         <Contact />
       </>
